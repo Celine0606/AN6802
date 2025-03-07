@@ -15,5 +15,14 @@ def main():
 def ethical_test():
     return(render_template("ethical_test.html"))
     
+@app.route("/ethical_result",methods=["POST","GET"])
+def ethical_result():
+    answer = request.form.get("answer")
+    if answer == "false":
+        return(render_template("pass.html"))
+    elif answer == "true":
+        return(render_template("fail.html"))
+    
+       
 if __name__ == "__main__":
     app.run()
